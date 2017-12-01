@@ -1,0 +1,82 @@
+<div class="aggregation">
+    <div class="aggregation__query-info-container">
+        <div class="aggregation__group-by-type-fields-container">
+            <div class="aggregation__field-type-title">{{'ANALYZE.AGGREGATION.GROUP_BY_TITLE' | translate}}</div>
+            <div #dimensionsContainer class="aggregation__fields-container" dnd-sortable-container [sortableData]="vm.dimensions" [dropZones]="[fieldDropZones.dimension]">
+
+                <div class="aggregation__field-drag-wrapper" *ngFor="let dimensionItem of vm.dimensions; let i = index" dnd-draggable [dragData]="dimensionItem"
+                    [dropZones]="[fieldDropZones.dimension,fieldDropZones.measure]" (onDragStart)="onDragDimensionStart($event,dimensionItem,i)"
+                    [app-drag-end]="onDragDimensionEndFactory(dimensionItem)">
+
+                    <div dnd-sortable [sortableIndex]="i">
+                        <app-button class="aggregation__field-item" *ngIf="!vm.isDateAggregationDimension(dimensionItem)" type="primary" size="sm" closeable="true"
+                            (close)="onDimensionCloseBtnClicked($event,dimensionItem)">
+                            {{getDimensionItemTitle(dimensionItem)}}
+                        </app-button>
+                        <app-dropdown class="aggregation__field-item" *ngIf="vm.isDateAggregationDimension(dimensionItem)" type="primary" size="sm" closeable="true"
+                            (close)="onDimensionCloseBtnClicked($event,dimensionItem)">
+                            <span class="app-dropdown-toggle">
+                                {{getDimensionItemTitle(dimensionItem)}} ({{vm.getDateDimensionItemIntervalTranslateKey(dimensionItem) | translate}})
+                            </span>
+                            <div class="app-dropdown-menu">
+                                <button *ngFor="let dateDimensionInterval of vm.dateDimensionIntervals" class="dropdown-item" (click)="onDateDimensionIntervalItemSelected($event,dateDimensionInterval,dimensionItem)">
+                                    {{getDateDimensionIntervalTranslateKey(dateDimensionInterval) | translate}}
+                                </button>
+                            </div>
+                        </app-dropdown>
+                    </div>
+
+                </div>
+
+                <app-button class="aggregation__field-placeholder" size="sm">&nbsp;</app-button>
+            </div>
+        </div>
+        <div class="aggregation__group-by-type-fields-container">
+            <div class="aggregation__field-type-title">{{'ANALYZE.AGGREGATION.MEASURES_TITLE' | translate}}</div>
+            <div #measuresContainer class="aggregation__fields-container" dnd-sortable-container [sortableData]="vm.measures" [dropZones]="[fieldDropZones.measure]">
+
+                <div class="aggregation__field-drag-wrapper" *ngFor="let measureItem of vm.measures; let i = index" dnd-draggable [dragData]="measureItem"
+                    [dropZones]="[fieldDropZones.dimension,fieldDropZones.measure]"  (onDragStart)="onDragMeasureStart($event,measureItem,i)"
+                    [app-drag-end]="onDragMeasureEndFactory(measureItem)">
+
+                    <div dnd-sortable [sortableIndex]="i">
+                        <app-dropdown class="aggregation__field-item" type="success" size="sm" closeable="true" (close)="onMeasureCloseBtnClicked($event,measureItem)">
+                            <span class="app-dropdown-toggle">
+                                {{getMeasureItemTitle(measureItem)}} ({{vm.getMeasureItemOperatorTranslateKey(measureItem) | translate}})
+                            </span>
+                            <div class="app-dropdown-menu">
+                                <button *ngFor="let operator of vm.getAvailableMeasureOperators(measureItem)" class="dropdown-item" (click)="onMeasureOperatorDropdownItemSelected($event,operator,measureItem)">
+                                    {{getMeasureOperatorTranslateKey(operator) | translate}}
+                                </button>
+                            </div>
+                        </app-dropdown>
+                    </div>
+
+                </div>
+
+                <app-button class="aggregation__field-placeholder" size="sm">&nbsp;</app-button>
+            </div>
+        </div>
+        <div class="aggregation__group-by-type-fields-container">
+            <div class="aggregation__field-type-title">{{'ANALYZE.AGGREGATION.FILTERS_TITLE' | translate}}</div>
+            <div #filtersContainer class="aggregation__fields-container" dnd-droppable (onDropSuccess)="onDropFilterSuccess($event)" [dropZones]="[fieldDropZones.dimension,fieldDropZones.measure]">
+
+                <div class="aggregation__field-drag-wrapper" *ngFor="let filterItem of vm.filters; let i = index" dnd-draggable [dragData]="filterItem" (onDragEnd)="onDragFilterEnd($event,filterItem)">
+                    <app-button class="aggregation__field-item" type="primary" size="sm" closeable="true" (close)="onFilterCloseBtnClicked($event,filterItem)">
+                        {{getFilterItemTitle(filterItem)}}
+                    </app-button>
+                </div>
+
+                <app-button class="aggregation__field-placeholder" size="sm">&nbsp;</app-button>
+            </div>
+        </div>
+    </div>
+    <div class="aggregation__chart-container">
+        <app-alert type="info" *ngIf="vm.loading">{{'COMMON.LOADING_MSG' | translate}}</app-alert>
+        <app-alert type="info" *ngIf="vm.dimensions.length > 0 && vm.measures.length > 0 && !vm.isAggregationQueryDataValid()" dismissible="true">{{'ANALYZE.AGGREGATION.QUERY_DATA_INVALID_MSG' | translate}}</app-alert>
+        <app-alert type="danger" dismissible="true" refreshable="true" *ngIf="vm.error" (onRefresh)="onRefresh($event)">
+            <span [innerHTML]="vm.errorMsg"></span>
+        </app-alert>
+        <aggregation-chart #aggregationChart *ngIf="!vm.loading && vm.dataSource != null && vm.aggregationData != null && vm.isAggregationQueryDataValid()" [dataSource]="vm.dataSource" [aggregationData]="vm.aggregationData"></aggregation-chart>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'placeholders';
+%app-link-button {
+    @extend %fill;
+    display: flex;
+    color: black;
+    font-size: $default-app-font-size-xs;
+    font-weight: bold;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+app-link-button {
+    display: inline-block;
+}
+
+.app-link-button {
+    @extend %app-link-button;
+
+    &:hover {
+        color: black;
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+        margin-left: $default-spacing-xs;
+    }
+    &--highlight {
+        @extend %app-link-button;
+    }
+}

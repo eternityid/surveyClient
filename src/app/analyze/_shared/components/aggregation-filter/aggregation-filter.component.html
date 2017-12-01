@@ -1,0 +1,32 @@
+<div class="aggregation-filter">
+    <div class="aggregation-filter__header">
+        <div class="aggregation-filter__title">{{getBrowserLangText(field.title)}}</div>
+        <app-link-button [iconClass]="toggleBtnClass" (click)="toggleBody($event)"></app-link-button>
+    </div>
+    <div [hidden]="bodyClosed" class="aggregation-filter__body">
+        <select class="aggregation-filter__filter-types-dropdown default-input" [(ngModel)]="aggregationFilter.type" (change)="onSelectedFilterTypeChanged($event)">
+
+            <option *ngFor="let item of availableFilterTypes" [ngValue]="item">
+                {{getFilterTypeTranslateKey(item) | translate}}
+            </option>
+        </select>
+        <div *ngIf="filterTypes.Between != aggregationFilter.type" class="aggregation-filter__value-inputs-container ">
+            <input *ngIf="field.type != fieldTypes.Date" class="aggregation-filter__value-input default-input" [type]="valueInputType"
+                [ngModel]="aggregationFilter.value" (ngModelChange)="onSingleFilterValueChanged($event)" />
+
+            <app-datepicker class="aggregation-filter__value-input--full" *ngIf="field.type == fieldTypes.Date" [value]="aggregationFilter.value"
+                (valueChange)="onSingleFilterValueChanged($event)"></app-datepicker>
+        </div>
+        <div *ngIf="filterTypes.Between == aggregationFilter.type" class="aggregation-filter__value-inputs-container ">
+            <input *ngIf="field.type != fieldTypes.Date" class="aggregation-filter__value-input--half default-input" [type]="valueInputType"
+                [ngModel]="aggregationFilter.value[0]" (ngModelChange)="onBetweenFilterFirstValueChanged($event)" />
+            <input *ngIf="field.type != fieldTypes.Date" class="aggregation-filter__value-input--half default-input" [type]="valueInputType"
+                [ngModel]="aggregationFilter.value[1]" (ngModelChange)="onBetweenFilterSecondValueChanged($event)" />
+
+            <app-datepicker *ngIf="field.type == fieldTypes.Date" class="aggregation-filter__value-input--half" [value]="aggregationFilter.value[0]"
+                (valueChange)="onBetweenFilterFirstValueChanged($event)"></app-datepicker>
+            <app-datepicker *ngIf="field.type == fieldTypes.Date" class="aggregation-filter__value-input--half" [value]="aggregationFilter.value[1]"
+                (valueChange)="onBetweenFilterSecondValueChanged($event)"></app-datepicker>
+        </div>
+    </div>
+</div>

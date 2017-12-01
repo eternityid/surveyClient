@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'placeholders';
+@import 'mixins';
+$field-margin:$default-spacing-xs;
+aggregation {
+    display: block;
+}
+
+.aggregation {
+    @extend %fill;
+    &__query-info-container {
+        @extend %flex-row-wrap-container;
+        padding-bottom: $default-spacing-lg;
+    }
+    &__chart-container {
+        justify-content: center;
+        >aggregation-chart {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__group-by-type-fields-container {
+        @extend %flex-row-wrap-container;
+        max-width: 50%;
+        width: 50%;
+        padding-bottom: $default-spacing-md;
+        &:nth-child(odd) {
+            padding-right: $default-spacing-md;
+        }
+    }
+    &__fields-container {
+        @extend %flex-row-wrap-container;
+        padding: $default-spacing-xs;
+        border: $default-app-border;
+        max-width: 100%;
+        width: 100%;
+        cursor: default!important;
+    }
+    &__field-drag-wrapper {
+        margin: $field-margin;
+        max-width: calc(100% - #{$default-spacing-sm});
+    }
+    &__field-placeholder {
+        visibility: hidden;
+        width: 0;
+        min-width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        margin: $field-margin;
+        min-width: 20px;
+    }
+    &__field-type-title {
+        width: 100%;
+        font-weight: $default-app-base-font-weight;
+        font-size: $default-app-font-size-xs;
+        padding-bottom: $default-spacing-md;
+    }
+    &__field-item {
+        max-width: 100%;
+    }
+}
+
+@include flex-layout-breakpoint-less-than($flex-layout-breakpoint-lt-sm) {
+    .aggregation {
+        &__group-by-type-fields-container {
+            max-width: 100%;
+            width: 100%;
+            &:nth-child(odd) {
+                padding-right: 0px;
+            }
+        }
+    }
+}

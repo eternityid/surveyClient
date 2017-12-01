@@ -1,0 +1,13 @@
+<div class="data-source-list">
+    <div class="data-source-list__header">{{'ANALYZE.DATA_SOURCE_LIST.HEADER' | translate}}</div>
+    <select class="data-source-list__dropdown default-input" *ngIf="vm.dataSources" [(ngModel)]="vm.selectedDataSourceId"
+        (change)="onSelectedDataSourceChanged($event)">
+        <option [ngValue]="undefined">No Select</option>
+        <option *ngFor="let item of vm.dataSources" [ngValue]="item.id">{{item.title}}</option>
+    </select>
+
+    <app-alert type="info" *ngIf="vm.loading && vm.dataSources == undefined">{{'COMMON.LOADING_MSG' | translate}}</app-alert>
+    <app-alert type="danger" dismissible="true" refreshable="true" *ngIf="vm.error" (onRefresh)="onRefresh($event)">
+        <span [innerHTML]="vm.errorMsg"></span>
+    </app-alert>
+</div>

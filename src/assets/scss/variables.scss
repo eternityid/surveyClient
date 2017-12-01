@@ -1,0 +1,50 @@
+$fa-font-path : '../node_modules/font-awesome/fonts';
+
+$default-app-font-family: 'Josefin Sans Regular';
+
+$default-app-base-font-weight: 600;
+
+$default-app-z-index-level-1: 100;
+$default-app-z-index-level-2: 200;
+$default-app-z-index-level-3: 300;
+$default-app-z-index-level-4: 400;
+
+$default-app-font-size-xs: 1em;
+$default-app-font-size-sm: 1.2em;
+$default-app-font-size-md: 1.4em;
+$default-app-font-size-lg: 1.6em;
+
+$default-app-icon-block-size-sm: 40px;
+$default-app-icon-size-sm: 25px;
+
+$default-spacing-xs: 5px;
+$default-spacing-sm: 10px;
+$default-spacing-md: 15px;
+$default-spacing-lg: 20px;
+$default-spacing-xl: 25px;
+
+$default-app-border-thick: 1px;
+$default-app-border-color:rgb(219,219,219);
+$default-app-border: $default-app-border-thick solid $default-app-border-color;
+
+$default-input-vertical-padding: 0.375em;
+$default-input-horizontal-padding : 0.75em;
+
+$flex-layout-breakpoint-xs:599px;
+$flex-layout-breakpoint-sm:959px;
+$flex-layout-breakpoint-md:1279px;
+$flex-layout-breakpoint-lg:1919px;
+$flex-layout-breakpoint-xl:4999px;
+
+$flex-layout-breakpoint-lt-sm:599px;
+$flex-layout-breakpoint-lt-md:959px;
+$flex-layout-breakpoint-lt-lg:1279px;
+$flex-layout-breakpoint-lt-xl:1919px;
+
+$flex-layout-breakpoint-gt-xs:600px;
+$flex-layout-breakpoint-gt-sm:960px;
+$flex-layout-breakpoint-gt-md:1280px;
+$flex-layout-breakpoint-gt-lg:1920px;
+$flex-layout-breakpoint-gt-xl:5000px;
+
+$data-source-fields-min-height: 200px;

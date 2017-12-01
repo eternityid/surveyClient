@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'placeholders';
+app-datepicker {
+    display: inline-block;
+}
+
+.app-datepicker {
+    @extend %fill;
+    &__toggle-btn {}
+    &__toggle-btn-icon {}
+}

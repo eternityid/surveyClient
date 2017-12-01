@@ -1,0 +1,22 @@
+<div class="aggregation-setting-panel" *ngIf="vm && !vm.aggregationSettingPanelClosed">
+    <div class="aggregation-setting-panel__tabs">
+        <app-link-button [ngClass]="vm.getPanelTabItemClass(aggregationSettingTabs.filters)" titleTranslateKey="ANALYZE.AGGREGATION_SETTING.FILTERS" iconClass="filters-icon-sm"
+            onHoverHighlight="true" (click)="openAggregationSettingPanelFiltersTab()"></app-link-button>
+
+        <app-link-button [ngClass]="vm.getPanelTabItemClass(aggregationSettingTabs.charts)" titleTranslateKey="ANALYZE.AGGREGATION_SETTING.CHARTS" iconClass="charts-icon-sm"
+            onHoverHighlight="true" (click)="openAggregationSettingPanelChartsTab()"></app-link-button>
+    </div>
+    <div class="aggregation-setting-panel__content">
+        <div class="aggregation-setting-panel__close-btn-container">
+            <app-link-button iconClass="dark-close-icon-sm" onHoverHighlight="true" (click)="closeAggregationSettingPanel()"></app-link-button>
+        </div>
+        <div *ngIf="vm.activatedTab == aggregationSettingTabs.filters" class="aggregation-setting-panel__content-body">
+            <div class="flex-col-box" *ngFor="let filter of vm.filters; let i = index">
+                <aggregation-filter [aggregationFilter]="filter.aggregationFilter" [field]="filter.field" (aggregationFilterUpdated)="aggregationFilterItemUpdated($event)"></aggregation-filter>
+                <div *ngIf="i != vm.filters.length - 1" class="flex-space-seperator-md"></div>
+                <div *ngIf="i != vm.filters.length - 1" class="default-flex-line"></div>
+                <div *ngIf="i != vm.filters.length - 1" class="flex-space-seperator-md"></div>
+            </div>
+        </div>
+    </div>
+</div>

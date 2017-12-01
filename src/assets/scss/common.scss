@@ -1,0 +1,153 @@
+@import 'placeholders';
+@import 'mixins';
+.default-input {
+    padding: $default-input-vertical-padding $default-input-horizontal-padding;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: .25rem;
+    height: calc(1.4em + #{$default-input-vertical-padding} * 2);
+    box-sizing: border-box;
+}
+
+.default-input-group-addon {
+    @extend %truncate-text;
+    padding: $default-input-vertical-padding;
+    border-radius: .25rem;
+    height: calc(1.4em + #{$default-input-vertical-padding} * 2);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+.default-flex-line {
+    @extend %default-flex-line;
+}
+
+.flex-row-box {
+    @extend %flex-row-box;
+}
+
+.flex-col-box {
+    @extend %flex-col-box;
+}
+
+//---------------------------------------------------------------------------------
+.flex-col-container {
+    @extend %flex-col-container;
+}
+
+@include flex-layout-media("xs") {
+    .flex-col-container-xs {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("gt-xs") {
+    .flex-col-container-gt-xs {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("sm") {
+    .flex-col-container-sm {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("gt-sm") {
+    .flex-col-container-gt-sm {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("md") {
+    .flex-col-container-md {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("gt-md") {
+    .flex-col-container-gt-md {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("lg") {
+    .flex-col-container-lg {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("gt-lg") {
+    .flex-col-container-gt-lg {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("xl") {
+    .flex-col-container-xl {
+        @include create-flex-container(column);
+    }
+}
+
+@include flex-layout-media("gt-xl") {
+    .flex-col-container-gt-xl {
+        @include create-flex-container(column);
+    }
+}
+
+//---------------------------------------------------------------------------------
+.flex-row-container {
+    @extend %flex-row-container;
+}
+
+@include flex-layout-media("xs") {
+    .flex-row-container-xs {
+        @include create-flex-container(row);
+    }
+}
+
+@include flex-layout-media("sm") {
+    .flex-row-container-sm {
+        @include create-flex-container(row);
+    }
+}
+
+@include flex-layout-media("md") {
+    .flex-row-container-md {
+        @include create-flex-container(row);
+    }
+}
+
+@include flex-layout-media("lg") {
+    .flex-row-container-lg {
+        @include create-flex-container(row);
+    }
+}
+
+@include flex-layout-media("xl") {
+    .flex-row-container-xl {
+        @include create-flex-container(row);
+    }
+}
+
+//---------------------------------------------------------------------------------
+.flex-space-seperator-xs {
+    @include create-flex-space-seperator($default-spacing-xs);
+}
+
+.flex-space-seperator-sm {
+    @include create-flex-space-seperator($default-spacing-sm);
+}
+
+.flex-space-seperator-md {
+    @include create-flex-space-seperator($default-spacing-md);
+}
+
+.flex-space-seperator-lg {
+    @include create-flex-space-seperator($default-spacing-lg);
+}
+
+.flex-space-seperator-xl {
+    @include create-flex-space-seperator($default-spacing-xl);
+}

@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'placeholders';
+app-dropdown {
+    display: inline-block;
+}
+
+.app-dropdown {
+    @extend %fill;
+    display: block;
+    &__btn {
+    }
+}
+
+.app-dropdown-closeable {
+    @extend .app-dropdown;
+    display: flex;
+    &__btn {
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+    }
+    &__close {
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+}

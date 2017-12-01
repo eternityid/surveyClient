@@ -1,0 +1,7 @@
+<div class="aggregation-setting-trigger" *ngIf="vm && vm.aggregationSettingPanelClosed">
+    <app-link-button class="aggregation-setting-trigger__btn" titleTranslateKey="ANALYZE.AGGREGATION_SETTING.FILTERS" iconClass="filters-icon-sm"
+        onHoverHighlight="true" (click)="openAggregationSettingPanelFiltersTab()"></app-link-button>
+
+    <app-link-button class="aggregation-setting-trigger__btn" titleTranslateKey="ANALYZE.AGGREGATION_SETTING.CHARTS" iconClass="charts-icon-sm"
+        onHoverHighlight="true" (click)="openAggregationSettingPanelChartsTab()"></app-link-button>
+</div>

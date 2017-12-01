@@ -1,0 +1,116 @@
+@mixin create-flex-box($flex-direction) {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: $flex-direction;
+    align-content: flex-start;
+    flex-shrink: 0;
+}
+
+@mixin create-flex-container($flex-direction) {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: $flex-direction;
+    flex-wrap: nowrap;
+    width: auto;
+    flex-grow: 1;
+    justify-content: unset;
+    max-width: 100%;
+    align-content: flex-start;
+    overflow: auto;
+}
+
+@mixin create-flex-line($line-thick: $default-app-border-thick) {
+    min-width: $line-thick;
+    min-height: $line-thick;
+    background-color: $default-app-border-color;
+    align-self: stretch;
+    justify-self: stretch;
+}
+
+@mixin create-flex-space-seperator($space-length) {
+    flex-shrink: 0;
+    flex-basis: $space-length;
+    align-self: stretch;
+    justify-self: stretch;
+}
+
+@mixin flex-layout-breakpoint-less-than($max-width) {
+    @media (max-width: $max-width) {
+        @content;
+    }
+}
+
+@mixin flex-layout-media($mediaType: null) {
+    @if($mediaType=="xs") {
+        @media (max-width: $flex-layout-breakpoint-xs) {
+            @content;
+        }
+    }
+    @else if($mediaType=="gt-xs") {
+        @media (min-width: $flex-layout-breakpoint-gt-xs) {
+            @content;
+        }
+    }
+    @else if($mediaType=="sm") {
+        @media (min-width: $flex-layout-breakpoint-gt-xs) and (max-width: $flex-layout-breakpoint-sm) {
+            @content;
+        }
+    }
+    @else if($mediaType=="gt-sm") {
+        @media (min-width: $flex-layout-breakpoint-gt-sm) {
+            @content;
+        }
+    }
+    @else if($mediaType=="md") {
+        @media (min-width: $flex-layout-breakpoint-gt-sm) and (max-width: $flex-layout-breakpoint-md) {
+            @content;
+        }
+    }
+    @else if($mediaType=="gt-md") {
+        @media (min-width: $flex-layout-breakpoint-gt-md) {
+            @content;
+        }
+    }
+    @else if($mediaType=="lg") {
+        @media (min-width: $flex-layout-breakpoint-gt-md) and (max-width: $flex-layout-breakpoint-lg) {
+            @content;
+        }
+    }
+    @else if($mediaType=="gt-lg") {
+        @media (min-width: $flex-layout-breakpoint-gt-lg) {
+            @content;
+        }
+    }
+    @else if($mediaType=="xl") {
+        @media (min-width: $flex-layout-breakpoint-gt-lg) and (max-width: $flex-layout-breakpoint-xl) {
+            @content;
+        }
+    }
+    @else if($mediaType=="gt-xl") {
+        @media (min-width: $flex-layout-breakpoint-gt-xl) {
+            @content;
+        }
+    }
+}
+
+@mixin create-icon($size) {
+    display: inline-block;
+    background-position: center;
+    width: $size;
+    min-width: $size;
+    height: $size;
+    min-height: $size;
+    flex-shrink: 0;
+}
+
+@mixin create-icon-sm($row, $col, $is-highlight:false) {
+    @include create-icon($default-app-icon-size-sm);
+    @if $is-highlight {
+        background-image: url('~assets/img/icons-sm--highlight.png');
+    }
+    @else {
+        background-image: url('~assets/img/icons-sm.png');
+    }
+    background-position-y: calc(-#{$default-app-icon-block-size-sm} * #{$row} - calc(#{$default-app-icon-block-size-sm} - #{$default-app-icon-size-sm})/2);
+    background-position-x: calc(-#{$default-app-icon-block-size-sm} * #{$col} - calc(#{$default-app-icon-block-size-sm} - #{$default-app-icon-size-sm})/2);
+}

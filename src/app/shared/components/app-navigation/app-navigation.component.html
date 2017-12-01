@@ -1,0 +1,11 @@
+<div class="app-navigation">
+    <app-link-button
+    *ngFor="let item of vm.items"
+    [ngClass]="{'app-navigation__item--highlight' : vm.isHighlightItem(item), 'app-navigation__item' : !vm.isHighlightItem(item)}"
+    [titleTranslateKey]="item.translateKey" 
+    [iconClass]="item.iconClass" 
+    [highlighted]="vm.isHighlightItem(item)"
+    [routerLink]="item.routerLink"
+    (mouseenter)="onItemMouseEnter($event, item)"
+    (mouseleave)="onItemMouseLeave($event, item)"></app-link-button>
+</div>

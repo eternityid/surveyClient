@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'placeholders';
+data-source-field-item {
+    display: block;
+    border: $default-app-border-thick solid transparent;
+
+    &:hover {
+        border: $default-app-border;
+    }
+}
+
+.data-source-field-item {
+    @extend %flex-row-container;
+    padding: $default-spacing-sm 0;
+    cursor: pointer;
+    align-items: center;
+    line-height: 1.2em;
+    &__title {
+        flex-grow: 1;
+        margin-left: $default-spacing-sm;
+    }
+    &__selected-state {
+        padding: 0 $default-spacing-md;
+        min-width: calc(1em + #{$default-spacing-md} * 2);
+    }
+}

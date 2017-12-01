@@ -1,0 +1,11 @@
+<div *ngIf="!isClosed" class="alert {{alertTypeClass}} {{alertDismissibleClass}} app-alert">
+    <div class="app-alert__content">
+        <ng-content></ng-content>
+    </div>
+    <button *ngIf="refreshable" type="button" class="close app-alert__btn" data-dismiss="alert" aria-label="Refresh" (click)="onRefreshBtnClicked($event)">
+        <i class="app-alert__btn-icon fa fa-refresh" aria-hidden="true"></i>
+    </button>
+    <button *ngIf="dismissible" type="button" class="close app-alert__btn" data-dismiss="alert" aria-label="Close" (click)="onCloseBtnClicked($event)">
+        <span class="app-alert__btn-close-icon" aria-hidden="true">&times;</span>
+    </button>
+</div>

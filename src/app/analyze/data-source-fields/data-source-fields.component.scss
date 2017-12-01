@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'placeholders';
+data-source-fields {
+    @extend %flex-col-container;
+    min-height: $data-source-fields-min-height;
+}
+
+.data-source-fields {
+    @extend %flex-col-container;
+    @extend %fill;
+    font-weight: $default-app-base-font-weight;
+    font-size: $default-app-font-size-xs;
+    &__field-type-title {
+        font-size: $default-app-font-size-xs;
+        padding-bottom: $default-spacing-md;
+    }
+    &__fields-container {
+        flex-grow: 1;
+    }
+    &__fields-container-by-type {
+        @extend %flex-col-container;
+        align-items: stretch;
+        min-height: $data-source-fields-min-height;
+    }
+    &__fields-item-container {
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+    >app-alert {
+        margin-right: $default-spacing-md;
+    }
+}
+
+@include flex-layout-media("sm") {
+    .data-source-fields {
+        flex-direction: row;
+        &__fields-container-by-type {
+            max-width: 50%;
+        }
+    }
+}

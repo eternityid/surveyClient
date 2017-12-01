@@ -1,0 +1,23 @@
+<div class="data-source-fields">
+    <app-alert type="info" *ngIf="vm.loading && vm.dataSourceId != undefined && vm.fields == undefined">{{'COMMON.LOADING_MSG' | translate}}</app-alert>
+    <app-alert type="danger" dismissible="true" refreshable="true" *ngIf="vm.error" (onRefresh)="onRefresh($event)">
+        <span [innerHTML]="vm.errorMsg"></span>
+    </app-alert>
+    <div class="data-source-fields__fields-container flex-col-container-xs flex-row-container-sm flex-col-container-gt-sm">
+        <div class="data-source-fields__fields-container-by-type">
+            <div class="data-source-fields__field-type-title">{{'ANALYZE.DATA_SOURCE_FIELDS.DIMENSION_FIELD_TYPE_TITLE' | translate}}</div>
+            <div class="data-source-fields__fields-item-container" *ngIf="vm.dimensions.length > 0">
+                <data-source-field-item dnd-draggable [dragData]="item.fieldSource" [dropZones]="[aggregationFieldDropZones.dimension]" *ngFor="let item of vm.dimensions"
+                    [vm]="item" [iconClass]="item.iconClass" (click)="selectDimension(item)"></data-source-field-item>
+            </div>
+        </div>
+        <div class="flex-space-seperator-md"></div>
+        <div class="data-source-fields__fields-container-by-type">
+            <div class="data-source-fields__field-type-title">{{'ANALYZE.DATA_SOURCE_FIELDS.MEASURE_FIELD_TYPE_TITLE' | translate}}</div>
+            <div class="data-source-fields__fields-item-container" *ngIf="vm.measures.length > 0">
+                <data-source-field-item dnd-draggable [dragData]="item.fieldSource" [dropZones]="[aggregationFieldDropZones.dimension,aggregationFieldDropZones.measure]"
+                    *ngFor="let item of vm.measures" [vm]="item" [iconClass]="item.iconClass" (click)="selectMeasure(item)"></data-source-field-item>
+            </div>
+        </div>
+    </div>
+</div>

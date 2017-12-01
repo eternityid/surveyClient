@@ -1,0 +1,4 @@
+<a *ngIf="vm" [ngClass]="{'app-link-button--highlight' : vm.highlighted, 'app-link-button' : !vm.highlighted}">
+    <i [ngClass]="vm.getCurrentIconClassName()"></i>
+    <span *ngIf="vm.titleTranslateKey" class="app-link-button__title">{{vm.titleTranslateKey | translate}}</span>
+</a>

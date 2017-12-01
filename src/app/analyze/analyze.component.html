@@ -1,0 +1,23 @@
+<div class="analyze">
+    <div class="flex-col-container">
+        <div class="analyze__navigation">
+            <app-navigation></app-navigation>
+            <aggregation-setting-trigger></aggregation-setting-trigger>
+        </div>
+        <div class="default-flex-line"></div>
+        <div class="analyze__content">
+            <div class="analyze__data-source-container">
+                <data-source-list></data-source-list>
+                <div class="flex-space-seperator-md"></div>
+                <div class="default-flex-line"></div>
+                <div class="flex-space-seperator-md"></div>
+                <data-source-fields #dataSourceFields></data-source-fields>
+            </div>
+            <div class="default-flex-line"></div>
+            <div class="analyze__aggeration-container">
+                <aggregation #aggregation></aggregation>
+            </div>
+        </div>
+    </div>
+    <aggregation-setting-panel></aggregation-setting-panel>
+</div>

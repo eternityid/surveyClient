@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'placeholders';
+
+data-source-list {
+    display: block;
+}
+
+.data-source-list {
+    @extend %flex-col-container;
+    font-weight: $default-app-base-font-weight;
+    font-size: $default-app-font-size-xs;
+    &__header {
+        padding-bottom: $default-spacing-md;
+    }
+    &__dropdown {
+        font-weight: $default-app-base-font-weight;
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "APP": {},
+    "SHARED": {
+        "APP_NAVIGATION": {
+            "REPORTS": "Reports",
+            "ANALYZE": "Analyze",
+            "DASHBOARDS": "Dashboards"
+        }
+    },
+    "ANALYZE": {
+        "DATA_SOURCE_LIST": {
+            "HEADER": "DATA SOURCE"
+        },
+        "DATA_SOURCE_FIELDS": {
+            "DIMENSION_FIELD_TYPE_TITLE": "DIMENSIONS",
+            "MEASURE_FIELD_TYPE_TITLE": "MEASURES"
+        },
+        "AGGREGATION": {
+            "GROUP_BY_TITLE": "GROUP BY",
+            "MEASURES_TITLE": "MEASURES",
+            "FILTERS_TITLE": "FILTERS",
+            "QUERY_DATA_INVALID_MSG": "Query data is invalid."
+        },
+        "AGGREGATION_SETTING": {
+            "FILTERS": "Filters",
+            "CHARTS": "Charts"
+        }
+    },
+    "COMMON": {
+        "LOADING_MSG": "Loading..."
+    },
+    "WORDS": {
+        "SUM": "Sum",
+        "AVERAGE": "Average",
+        "COUNT": "Count",
+        "COUNT_DISTINCT": "Count Distinct",
+        "MINIMUM": "Minimum",
+        "MAXIMUM": "Maximum",
+        "PERCENTILE": "Percentiles",
+        "STANDARD_DEVIATION": "Standard Deviation",
+        "VARIANCE": "Variance",
+        "DAY": "Day",
+        "WEEK": "Week",
+        "MONTH": "Month",
+        "QUARTER": "Quarter",
+        "YEAR": "Year",
+        "BETWEEN": "Between",
+        "EQUAL": "Equal",
+        "GREATER_THAN": "Greater Than",
+        "GREATER_THAN_OR_EQUAL_TO": "Greater than or equal to",
+        "LESS_THAN": "Less than",
+        "LESS_THAN_OR_EQUAL_TO": "Less than or equal to",
+        "NOT_EQUAL": "Not equal"
+    }
+}

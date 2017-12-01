@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'placeholders';
+app-alert {
+    display: block;
+}
+
+.app-alert {
+    @extend %flex-row-container;
+    align-items: center;
+    width: 100%;
+    margin: $default-spacing-xs 0px;
+    padding: 0;
+    &__btn {
+        float: none!important;
+        top: unset !important;
+        right: unset !important;
+        padding: 0 0.5rem !important;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        position: relative !important;
+        background: 0 0;
+        border: 0;
+        -webkit-appearance: none;
+        color: inherit;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .5;
+        font-weight: 900;
+    }
+    &__btn-icon {
+        display: block;
+    }
+    &__btn-close-icon {
+        display: block;
+        font-size: 200%;
+        margin-bottom: 0.6rem;
+    }
+    &__content {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: 0.5rem;
+        flex-grow: 1;
+    }
+}

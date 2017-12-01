@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'placeholders';
+%app-navigation__item {
+    padding: $default-spacing-xs $default-spacing-sm;
+}
+
+.app-navigation {
+    @extend %fill;
+    @extend %flex-row-container;
+    &__item {
+        @extend %app-navigation__item;
+        &--highlight {
+            @extend %app-navigation__item;
+            background-color: rgb(222, 234, 247);
+        }
+    }
+}

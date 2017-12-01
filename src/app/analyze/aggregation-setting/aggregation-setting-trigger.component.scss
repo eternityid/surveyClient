@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'placeholders';
+.aggregation-setting-trigger {
+    @extend %fill;
+    @extend %flex-row-container;
+    &__btn {
+        padding: $default-spacing-xs $default-spacing-sm;
+    }
+}

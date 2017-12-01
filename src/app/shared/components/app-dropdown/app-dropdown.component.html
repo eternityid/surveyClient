@@ -1,0 +1,15 @@
+<div class="app-dropdown" ngbDropdown #myDrop="ngbDropdown" [ngClass]="{'app-dropdown-closeable':closeable}">
+    <button *ngIf="closeable" class="app-dropdown-closeable__close" appButton [btnSize]="size" [btnType]="type" (click)="onCloseBtnClicked($event)">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    <button class="btn app-dropdown__btn" [ngClass]="toggleBtnClasses" ngbDropdownToggle>
+        <ng-content select=".app-dropdown-toggle">
+
+        </ng-content>
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownManual">
+        <ng-content select=".app-dropdown-menu">
+
+        </ng-content>
+    </div>
+</div>

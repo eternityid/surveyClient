@@ -1,0 +1,7 @@
+<div class="data-source-field-item">
+    <i *ngIf="iconClass" class="{{iconClass}}"></i>
+    <div class="data-source-field-item__title">{{getBrowserLangText(vm.title)}}</div>
+    <div class="data-source-field-item__selected-state">
+        <span *ngIf="vm.selected" class="fa fa-check"></span>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+@import 'variables';
+@import 'placeholders';
+$activate-background-color: rgb(247, 248, 252);
+aggregation-setting-panel {
+    display: block;
+}
+
+%tabs-item {
+    padding: $default-spacing-xs $default-spacing-sm;
+}
+
+.aggregation-setting-panel {
+    @extend %fill;
+    @extend %flex-col-container;
+    &__tabs {
+        @extend %flex-row-container;
+        flex-grow: 0;
+        justify-content: flex-end;
+        flex-shrink: 0;
+    }
+    &__tabs-item {
+        @extend %tabs-item;
+        &--activated {
+            @extend %tabs-item;
+            background-color: $activate-background-color;
+        }
+    }
+    &__content {
+        @extend %flex-col-container;
+        background-color: $activate-background-color;
+    }
+    &__content-body {
+        @extend %flex-col-container;
+        overflow-y: auto;
+        padding: 0 $default-spacing-md;
+        padding-bottom: $default-spacing-md;
+    }
+    &__close-btn-container {
+        @extend %flex-row-container;
+        flex-grow: 0;
+        justify-content: flex-end;
+        margin-bottom: $default-spacing-md;
+    }
+}

@@ -1,0 +1,31 @@
+@import 'variables';
+@import 'placeholders';
+app-button {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.app-button {
+    @extend %fill;
+    display: flex;
+    flex-wrap: nowrap;
+    @extend %truncate-text;
+    
+    &__btn {
+    }
+}
+
+.app-button-closeable {
+    @extend .app-button;
+    display: flex;
+    
+    &__btn {
+        @extend %truncate-text;
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+    }
+    &__close {
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+}

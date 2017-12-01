@@ -1,0 +1,78 @@
+@import 'variables';
+@import 'placeholders';
+%analyze__container {
+    @extend %flex-col-container;
+    max-height: 100%;
+    padding-top: $default-spacing-md;
+    padding-bottom: $default-spacing-md;
+}
+
+.analyze {
+    @extend %flex-row-container;
+
+    &__data-source-container {
+        @extend %analyze__container;
+        max-width: 300px;
+        min-width: 250px;
+
+        >data-source-fields {
+            margin-left: $default-spacing-md;
+        }
+        >data-source-list {
+            margin-left: $default-spacing-md;
+            margin-right: $default-spacing-md;
+        }
+    }
+    &__aggeration-container {
+        @extend %analyze__container;
+        overflow-y: auto;
+        min-height: 200px;
+        >aggregation {
+            margin-left: $default-spacing-md;
+            margin-right: $default-spacing-md;
+        }
+    }
+    &__content {
+        @extend %flex-row-container;
+    }
+    &__navigation {
+        @extend %flex-row-box;
+        flex-shrink: 0;
+        justify-content: space-between;
+    }
+
+    .aggregation-setting-panel {
+        max-width: 340px;
+        min-width: 340px;
+    }
+}
+
+@include flex-layout-breakpoint-less-than($flex-layout-breakpoint-lt-md) {
+    .analyze {
+        flex-direction: column;
+        &__content {
+            flex-direction: column;
+        }
+        &__data-source-container {
+            max-width: 100%;
+            >data-source-fields {
+                max-height: $data-source-fields-min-height;
+            }
+        }
+        >aggregation-setting-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}
+
+@include flex-layout-breakpoint-less-than($flex-layout-breakpoint-lt-sm) {
+    .analyze {
+        &__data-source-container {
+            >data-source-fields {
+                max-height: calc(#{$data-source-fields-min-height} * 2);
+            }
+        }
+    }
+}

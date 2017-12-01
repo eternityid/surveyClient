@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'placeholders';
+
+aggregation-chart {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.aggregation-chart {
+    @extend %fill;
+
+    &__chart{
+        @extend %fill;
+        display: flex;
+        justify-content: center;
+    }
+}

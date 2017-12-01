@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'placeholders';
+aggregation-filter {
+    display: block;
+}
+
+%value-input {
+    margin-bottom: $default-spacing-sm;
+}
+
+.aggregation-filter {
+    @extend %fill;
+    @extend %flex-row-wrap-container;
+    overflow: unset;
+    
+    &__header {
+        width: 100%;
+        @extend %flex-row-box;
+        align-items: flex-start;
+    }
+    &__body {
+        @extend %flex-row-wrap-container;
+        overflow: unset;
+    }
+    &__title {
+        @extend %truncate-text;
+        font-weight: $default-app-base-font-weight;
+        font-size: $default-app-font-size-sm;
+        margin-bottom: $default-spacing-sm;
+        flex-grow: 1;
+    }
+    &__filter-types-dropdown {
+        font-weight: $default-app-base-font-weight;
+        width: 100%;
+        margin-bottom: $default-spacing-sm;
+    }
+    &__value-inputs-container {
+        @extend %flex-row-container;
+        width: 100%;
+        justify-content: space-between;
+        overflow: unset;
+    }
+    &__value-input {
+        @extend %value-input;
+        &--full {
+            @extend %value-input;
+            flex-basis: 100%;
+        }
+        &--half {
+            @extend %value-input;
+            flex-basis: calc(50% - #{$default-spacing-sm}/2);
+        }
+    }
+}

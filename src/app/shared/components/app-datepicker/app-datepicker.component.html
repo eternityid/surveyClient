@@ -1,0 +1,7 @@
+<div class="input-group app-datepicker">
+    <input class="default-input form-control" placeholder="yyyy-mm-dd" [(ngModel)]="ngbDateValue" (ngModelChange)="onNgbDateValueChanged($event)"
+        ngbDatepicker #d="ngbDatepicker">
+    <button class="default-input-group-addon input-group-addon app-datepicker__toggle-btn" (click)="d.toggle()" type="button">
+        <i class="calendar-icon-sm app-datepicker__toggle-btn-icon"></i>
+    </button>
+</div>
